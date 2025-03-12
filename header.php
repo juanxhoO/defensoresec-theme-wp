@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
     <?php wp_head(); ?>
 </head>
 
@@ -20,10 +19,11 @@
 
         <header>
             <div class="mx-auto container">
-                <div class="md:flex lg:justify-between lg:items-center border-b py-6">
+                <?php get_template_part('template-parts/top-bar'); ?>
+                <div class="nav-bar md:flex px-6 justify-between lg:items-center border-b pb-4">
                     <!-- Logo Section -->
                     <div class="flex justify-between items-center">
-                        <div>
+                        <div class="site-logo">
                             <?php if (has_custom_logo()) { ?>
                                 <?php the_custom_logo(); ?>
                             <?php } else { ?>
@@ -38,7 +38,7 @@
                         </div>
 
                         <!-- Mobile Menu Toggle -->
-                        <!-- <div class="lg:hidden">
+                        <div class="md:hidden">
                             <a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
                                 <svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -50,17 +50,31 @@
                                     </g>
                                 </svg>
                             </a>
-                        </div> -->
+                        </div>
                     </div>
 
                     <!-- Menu Section -->
-                    <div class="flex flex-1 justify-end">
+                    <div class="flex flex-col md:flex-row menu-bar py-15 px-8 md:py-0 md:px-0 flex-1 items-center md:justify-end">
+                        <div class="site-logo md:hidden">
+                            <?php if (has_custom_logo()) { ?>
+                                <?php the_custom_logo(); ?>
+                            <?php } else { ?>
+                                <a href="<?php echo get_bloginfo('url'); ?>" class="font-extrabold text-lg uppercase">
+                                    <?php echo get_bloginfo('name'); ?>
+                                </a>
+
+                                <p class="text-sm font-light text-gray-600">
+                                    <?php echo get_bloginfo('description'); ?>
+                                </p>
+                            <?php } ?>
+                        </div>
+                        <div id="close-menu-toggle" class="absolute -right-14 top-4"><a href="#"><i class="fa-solid fa-2x fa-xmark"></i></a></div>
                         <?php
                         wp_nav_menu(
                             array(
                                 'container_id'    => 'primary-menu',
-                                'container_class' => 'flex lg:flex-1 lg:justify-end lg:space-x-4', // Updated classes
-                                'menu_class'      => 'lg:flex lg:items-center', // Updated classes
+                                'container_class' => 'flex mt-8 md:mt-0 df-main-menu lg:flex-1 lg:justify-end lg:space-x-4', // Updated classes
+                                'menu_class'      => 'flex-col md:flex-row flex gap-4 lg:items-center', // Updated classes
                                 'theme_location'  => 'primary',
                                 'li_class'        => 'lg:mx-4', // Add spacing between menu items
                                 'fallback_cb'     => false,
@@ -70,8 +84,34 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <div class="main-carousel">
+                    <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide3.jpg" alt="Slide 1"></div>
+                    <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide2.jpeg" alt="Slide 2"></div>
+                    <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide1.jpeg" alt="Slide 3"></div>
+                </div>
+
+                <script>
+                    jQuery(document).ready(function($) {
+                        $('.main-carousel').slick({
+                            dots: true,
+                            infinite: true,
+                            speed: 900,
+                            slidesToShow: 1,
+                            adaptiveHeight: true,
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            prevArrow: false,
+                            nextArrow: false,
+                        });
+                    });
+                </script>
+
+            </div>
+
         </header>
 
+        <div class="overlay">sd</div>
         <div id="content" class="site-content grow">
 
             <?php if (is_front_page()) { ?>

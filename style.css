@@ -9,3 +9,160 @@ License: MIT
 License URI: https://github.com/jeffreyvr/tailpress/blob/master/LICENSE
 Text Domain: tailpress
 */
+
+h2 {
+    font-size: 1.125rem;
+}
+
+/* Header Menu Stlyes */
+
+.df-main-menu li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.df-main-menu li a {
+    text-decoration: none;
+}
+
+.df-main-menu li:hover {
+    color: red;
+}
+
+/* MObile */
+
+.top-bar a {
+    text-decoration: none;
+}
+
+.menu-bar {
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+@media (max-width: 781px) {
+    .menu-bar {
+        position: fixed;
+        width: 280px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #ffffff;
+        z-index: 1000;
+        transform: translateX(-100%);
+    }
+
+    .menu-bar.open {
+        transform: translateX(0);
+    }
+}
+
+
+
+#close-menu-toggle {
+    display: none;
+}
+
+#close-menu-toggle.show {
+    display: block;
+}
+
+
+.overlay {
+    background-color: #000000;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    opacity: .5;
+}
+
+.overlay.opened {
+    display: block;
+}
+
+.nav-bar.fixed {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: #ffffff;
+}
+
+
+
+/* Mega Menu  */
+
+.menu-bar .sub-menu {
+    display: block;
+    /* Change to block for sliding effect */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #ffffff;
+    background-color: #444;
+    width: 600px;
+    /* Adjust width as needed */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-height: 0;
+    /* Start with 0 height */
+    overflow: hidden;
+    /* Hide overflow content */
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    /* Smooth transition */
+    opacity: 0;
+    /* Start with 0 opacity */
+}
+
+.menu-item a {
+    text-decoration: none;
+}
+
+/* Show Submenu on Hover */
+.menu-bar .menu-item-has-children:hover .sub-menu {
+    max-height: 500px;
+    /* Adjust to the maximum height of your submenu */
+    opacity: 1;
+    /* Fade in to full opacity */
+}
+
+/* Show Submenu on Hover */
+.menu-bar .menu-item-has-children {
+    position: relative;
+}
+
+/* Top Bar Menu */
+.site-logo {
+    max-width: 80px;
+}
+
+/* Desktop */
+
+/* Footer */
+
+/* General Menu Styles */
+
+.site-footer .menu-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.main-carousel {
+    max-height: 500px;
+    /* Set the maximum height */
+    overflow: hidden;
+    /* Hide any overflow */
+}
+
+/* Ensure images do not exceed the carousel height */
+.main-carousel img {
+    width: auto;
+    /* Maintain aspect ratio */
+    margin: 0 auto;
+    /* Center the images horizontally */
+}
