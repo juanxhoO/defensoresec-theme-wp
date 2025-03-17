@@ -19,8 +19,7 @@
 
         <header>
             <div class="mx-auto container">
-                <?php get_template_part('template-parts/top-bar'); ?>
-                <div class="nav-bar md:flex px-6 justify-between lg:items-center border-b pb-4">
+                <div class="nav-bar md:flex px-6 justify-between lg:items-center border-b py-4">
                     <!-- Logo Section -->
                     <div class="flex justify-between items-center">
                         <div class="site-logo">
@@ -54,8 +53,8 @@
                     </div>
 
                     <!-- Menu Section -->
-                    <div class="flex flex-col md:flex-row menu-bar py-15 px-8 md:py-0 md:px-0 flex-1 items-center md:justify-end">
-                        <div class="site-logo md:hidden">
+                    <div class="flex flex-col flex-1 menu-bar py-15 px-8 md:py-0 md:px-0 flex-1 justify-start md:justify-around">
+                        <div class="site-logo mx-auto md:hidden">
                             <?php if (has_custom_logo()) { ?>
                                 <?php the_custom_logo(); ?>
                             <?php } else { ?>
@@ -70,10 +69,12 @@
                         </div>
                         <div id="close-menu-toggle" class="absolute -right-14 top-4"><a href="#"><i class="fa-solid fa-2x fa-xmark"></i></a></div>
                         <?php
+                        get_template_part('template-parts/top-bar');
+
                         wp_nav_menu(
                             array(
                                 'container_id'    => 'primary-menu',
-                                'container_class' => 'flex mt-8 md:mt-0 df-main-menu lg:flex-1 lg:justify-end lg:space-x-4', // Updated classes
+                                'container_class' => 'flex mt-8 md:mt-0 df-main-menu md:justify-end lg:space-x-4', // Updated classes
                                 'menu_class'      => 'flex-col md:flex-row flex gap-4 lg:items-center', // Updated classes
                                 'theme_location'  => 'primary',
                                 'li_class'        => 'lg:mx-4', // Add spacing between menu items
@@ -84,55 +85,17 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="main-carousel">
-                    <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide3.jpg" alt="Slide 1"></div>
-                    <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide2.jpeg" alt="Slide 2"></div>
-                    <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide1.jpeg" alt="Slide 3"></div>
-                </div>
 
-                <script>
-                    jQuery(document).ready(function($) {
-                        $('.main-carousel').slick({
-                            dots: true,
-                            infinite: true,
-                            speed: 900,
-                            slidesToShow: 1,
-                            adaptiveHeight: true,
-                            autoplay: true,
-                            autoplaySpeed: 3000,
-                            prevArrow: false,
-                            nextArrow: false,
-                        });
-                    });
-                </script>
+            <?php
 
-            </div>
-
+            if (is_front_page()) {
+                // This is the front page
+                get_template_part('template-parts/carousel');
+            } ?>
         </header>
 
         <div class="overlay">sd</div>
         <div id="content" class="site-content grow">
-
-            <?php if (is_front_page()) { ?>
-                <!-- Start introduction -->
-                <div class="container mx-auto">
-                    <div class="px-12 py-16 my-12 rounded-xl bg-linear-to-r from-blue-50 from-10% via-sky-100 via-30% to-blue-200 to-90%">
-                        <div class="mx-auto max-w-(--breakpoint-md)">
-                            <h1 class="text-3xl lg:text-6xl tracking-tight font-extrabold text-gray-800 mb-6">Start building your next <a href="https://tailwindcss.com" class="text-secondary">Tailwind CSS</a> flavoured WordPress theme
-                                with <a href="https://tailpress.io" class="text-primary">TailPress</a>.</h1>
-                            <p class="text-gray-600 text-xl font-medium mb-10">TailPress is your go-to starting
-                                point for developing WordPress themes with Tailwind CSS and comes with basic block-editor support out
-                                of the box.</p>
-                            <a href="https://github.com/jeffreyvr/tailpress"
-                                class="w-full sm:w-auto flex-none bg-gray-900 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-hidden transition-colors duration-200">View
-                                on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End introduction -->
-            <?php } ?>
-
             <?php do_action('tailpress_content_start'); ?>
 
             <main>

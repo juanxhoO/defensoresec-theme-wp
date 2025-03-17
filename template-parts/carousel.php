@@ -1,16 +1,24 @@
-<!-- template-parts/top-bar.php -->
-<div class="top-bar py-4">
-    <div class="container mx-auto px-4">
-        <div class="flex justify-end gap-4 ">
-            <div class="text-sm">
-                Welcome to our website!
-            </div>
-            <div class="text-sm">
-                Welcome to our website!
-            </div>
-            <div class="text-sm">
-                <a href="/contact" class="hover:text-gray-400">Contact Us</a>
-            </div>
-        </div>
+<div>
+    <div class="main-carousel">
+        <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide3.jpg" alt="Slide 1"></div>
+        <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide2.jpeg" alt="Slide 2"></div>
+        <div><img src="http://localhost:8080/wp-content/uploads/2025/03/slide1.jpeg" alt="Slide 3"></div>
     </div>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $('.main-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 900,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                prevArrow: false,
+                nextArrow: false,
+            });
+        });
+    </script>
+
 </div>

@@ -3,8 +3,8 @@
 $site_phone = get_theme_mod('contact_phone', '');
 $site_email = get_theme_mod('site_email', '');
 ?>
-<div class="top-bar pt-4 hidden md:flex">
-    <div class="container mx-auto w-full px-4">
+<div class="top-bar hidden md:flex">
+    <div class="container mx-auto w-full">
         <div class="flex justify-end gap-4 ">
             <div class="text-sm">
                 <?php

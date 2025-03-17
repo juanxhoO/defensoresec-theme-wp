@@ -43,11 +43,7 @@ window.addEventListener('load', function () {
   
       // Scroll event listener
       window.addEventListener('scroll', function () {
-            const navbarHeight = header.offsetHeight;
-
-            console.log('Scroll Y:', window.scrollY);
-          console.log('Navbar Height:', navbarHeight);
-  
+            const navbarHeight = header.offsetHeight;  
           // Example: Add a class to the header when scrolling past the navbar height
           if (window.scrollY > (navbarHeight + 200)) {
             navbar.classList.add('fixed');

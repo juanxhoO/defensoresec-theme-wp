@@ -21,12 +21,34 @@ h2 {
     text-decoration: none;
 }
 
+/* Base link styling */
+
+/* Underline animation */
+.df-main-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+
+
+.df-main-menu li a:hover::after {
+    width: 100%;
+}
+
 .df-main-menu li a {
+    font-weight: bold;
     text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative
 }
 
 .df-main-menu li:hover {
-    color: red;
+    color: #e63b2f;
 }
 
 /* MObile */
@@ -41,10 +63,16 @@ h2 {
 }
 
 @media (max-width: 781px) {
+
+    .df-main-menu {
+        width: 100%;
+    }
+
     .menu-bar {
         position: fixed;
         width: 280px;
         top: 0;
+        left: 0;
         left: 0;
         height: 100%;
         background: #ffffff;
@@ -85,6 +113,7 @@ h2 {
 
 .nav-bar.fixed {
     top: 0;
+    left: 0;
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -96,14 +125,12 @@ h2 {
 /* Mega Menu  */
 
 .menu-bar .sub-menu {
-    display: block;
     /* Change to block for sliding effect */
     position: absolute;
     top: 100%;
     left: 0;
     color: #ffffff;
     background-color: #444;
-    width: 600px;
     /* Adjust width as needed */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -115,6 +142,7 @@ h2 {
     transition: max-height 0.3s ease, opacity 0.3s ease;
     /* Smooth transition */
     opacity: 0;
+    z-index: 10;
     /* Start with 0 opacity */
 }
 
@@ -152,6 +180,12 @@ h2 {
 }
 
 
+.site-footer .menu-item:hover {
+    color: #e63b2f;
+}
+
+
+
 .main-carousel {
     max-height: 500px;
     /* Set the maximum height */
@@ -165,4 +199,77 @@ h2 {
     /* Maintain aspect ratio */
     margin: 0 auto;
     /* Center the images horizontally */
+}
+
+/* Contact Form Styles */
+
+/* Contact Form Styles */
+
+.wpcf7 input {
+    outline: 0;
+    border-bottom: 1px solid #000000;
+
+}
+
+.wpcf7 input:focus,
+.wpcf7 input:hover {
+    border-bottom: 1px solid red;
+}
+
+.wpcf7 textarea {
+    outline: 1px solid #000000
+}
+
+.wpcf7 input,
+.wpcf7 textarea {
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #ffffff;
+}
+
+.wpcf7 textarea:hover {
+    outline: 1px solid #e63b2f
+}
+
+.wpcf7-form-control.wpcf7-submit {
+    min-width: 225px;
+    padding: 15px;
+    color: #ffffff;
+    border: 2px solid #000000;
+    background-color: #000000;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.entry-header {
+    display: none;
+}
+
+.wpcf7-form-control.wpcf7-submit:hover {
+    background-color: #e63b2f;
+}
+
+.home-contact {
+    flex-wrap: wrap;
+}
+
+.wpcf7-form input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+select,
+textarea {
+    width: 100% !important;
 }
