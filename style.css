@@ -19,6 +19,7 @@ h2 {
 .df-main-menu li {
     list-style: none;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 /* Base link styling */
@@ -34,7 +35,6 @@ h2 {
     background-color: #000000;
     transition: width 0.3s ease;
 }
-
 
 .df-main-menu li a:hover::after {
     width: 100%;
@@ -63,7 +63,10 @@ h2 {
 }
 
 @media (max-width: 781px) {
-
+    .menu-bar{
+        background: #1d1d1b;
+        color: #ffffff;
+    }
     .df-main-menu {
         width: 100%;
     }
@@ -121,7 +124,11 @@ h2 {
 }
 
 
+/* Carousel */
 
+.slick-slide{
+    max-height: 500px;
+}
 /* Mega Menu  */
 
 .menu-bar .sub-menu {
@@ -182,15 +189,6 @@ h2 {
 
 .site-footer .menu-item:hover {
     color: #e63b2f;
-}
-
-
-
-.main-carousel {
-    max-height: 500px;
-    /* Set the maximum height */
-    overflow: hidden;
-    /* Hide any overflow */
 }
 
 /* Ensure images do not exceed the carousel height */

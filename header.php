@@ -94,7 +94,7 @@
             } ?>
         </header>
 
-        <div class="overlay">sd</div>
+        <div class="overlay"></div>
         <div id="content" class="site-content grow">
             <?php do_action('tailpress_content_start'); ?>
 

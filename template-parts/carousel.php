@@ -7,16 +7,13 @@
 
     <script>
         jQuery(document).ready(function($) {
-            $('.main-carousel').slick({
+            jQuery('.main-carousel').slick({
                 dots: true,
                 infinite: true,
                 speed: 900,
                 slidesToShow: 1,
-                adaptiveHeight: true,
                 autoplay: true,
                 autoplaySpeed: 3000,
-                prevArrow: false,
-                nextArrow: false,
             });
         });
     </script>
